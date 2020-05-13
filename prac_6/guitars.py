@@ -2,7 +2,7 @@ from guitar import Guitar
 
 
 def main():
-
+    """Tests for Guitar class."""
     guitar_list = []
 
     print("My guitars!")
