@@ -1,35 +1,39 @@
 
 
-class Car:
-    """Represent a Car object."""
+class ProgrammingLanguage:
+    """Represent information about a programming language."""
 
-    def __init__(self, name="", fuel=0):
-        """Initialise a Car instance.
-        name: string, reference name for car
-        fuel: float, one unit of fuel drives one kilometre
-        """
+    def __init__(self, name, typing, reflection, year):
+        """Construct a ProgrammingLanguage from the given values."""
         self.name = name
-        self.fuel = fuel
-        self.odometer = 0
+        self.typing = typing
+        self.reflection = reflection
+        self.year = year
 
     def __str__(self):
-        """Return a string representation of a Car object."""
-        return "{}, fuel={}, odometer={}".format(self.name, self.fuel,
-                                                 self.odometer)
+        """Return string representation of a ProgrammingLanguage."""
+        return "{}, {} Typing, Reflection={}, First appeared in {}".format(
+            self.name, self.typing, self.reflection, self.year)
 
-    def add_fuel(self, amount):
-        """Add amount to the car's fuel."""
-        self.fuel += amount
+    def is_dynamic(self):
+        """Determine if language is dynamically typed."""
+        return self.typing == "Dynamic"
 
-    def drive(self, distance):
-        """Drive the car a given distance.
-        Drive given distance if car has enough fuel
-        or drive until fuel runs out return the distance actually driven.
-        """
-        if distance > self.fuel:
-            distance = self.fuel
-            self.fuel = 0
-        else:
-            self.fuel -= distance
-        self.odometer += distance
-        return distance
+
+def run_tests():
+    """Run simple tests/demos on ProgrammingLanguage class."""
+    ruby = ProgrammingLanguage("Ruby", "Dynamic", True, 1995)
+    python = ProgrammingLanguage("Python", "Dynamic", True, 1991)
+    visual_basic = ProgrammingLanguage("Visual Basic", "Static", False, 1991)
+
+    languages = [ruby, python, visual_basic]
+    print(python)
+
+    print("The dynamically typed languages are:")
+    for language in languages:
+        if language.is_dynamic():
+            print(language.name)
+
+
+if __name__ == "__main__":
+    run_tests()
