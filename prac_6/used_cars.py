@@ -3,6 +3,7 @@ from car import Car
 
 
 def main():
+    """Demo test code to show how to use car class."""
 
     my_car = Car("My car", 180)
     my_car.drive(30)
